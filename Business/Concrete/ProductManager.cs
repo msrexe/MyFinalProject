@@ -47,10 +47,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProductAdded);
         }
 
+        [CacheAspect] //key, value
         public IDataResult<List<Product>> GetAll()
         {
-            //İş kodları
-            //Yetki Kontrolü
             if(DateTime.Now.Hour == 24)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
